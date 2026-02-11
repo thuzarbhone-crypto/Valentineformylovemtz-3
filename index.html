@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>For My Love Myo Thu Zar❤️</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body { margin:0; overflow:hidden; background:black; }
+#overlay{
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+color:white;
+font-size:24px;
+cursor:pointer;
+z-index:10;
+text-align:center;
+}
+#letter{
+position:absolute;
+bottom:20px;
+left:50%;
+transform:translateX(-50%);
+width:90%;
+max-width:600px;
+background:white;
+color:black;
+padding:20px;
+display:none;
+border-radius:10px;
+max-height:60vh;
+overflow:auto;
+}
+</style>
+</head>
+<body>
+
+<div id="overlay">Tap to Begin ❤️</div>
+
+<div id="letter">
+<h3>💌 အချစ်ရဆုံး သို့</h3>
+<p>
+အချစ်ရဆုံးရေ Happy Valentine Day ပါ အရမ်းချစ်တယ်နော်။ စတွေ့ကတည်းက အရမ်းချစ်ခဲ့ရတာ အခုဆိုရင် ၂ နှစ်ကျော် ခဲ့ပြီ။
+တစ်စက္ကန့်လေးမှ မောင့်အချစ်ကို မေ့မသွားခဲ့ပါဘူးအချစ်။ ဘယ်လိုအခက်ခဲမျိုးရှိရှိ အနားမှာ ရှိပေးနေလို့ကျေးဇူးတင်ပါတယ်။ မပြည့်စုံ ရုန်းကန်နေရတာတွေကိုလည်း စိတ်မပျက်ဘဲ ၊ မှားခဲ့တဲ့ အမှားတွေကိုလည်း ခွင့်လွတ်နားလည်းပေးတာတွေကိုလည်း ‌ကျေးဇူးတင်ပါတယ်အချစ်ရယ်။ 
+အခက်ခဲတွေအများကြီး တူတူကျော်ဖြတ်လာခဲ့တာ အရမ်းကျေးဇူးတင်ပါတယ် အရမ်းလည်းချစ်ရပါတယ်။ ရှေ့ဆက်အခက်အခဲတွေဘယ်လိုဘဲကြုံကြုံ တူတူရင်ဆိုင်ကျော်ဖြတ်ကြမယ်နော်အချစ်။ 
+မှားခဲ့တဲ့အမှားတွေကိုလည်းထပ်ပြီးတောင်းပန်ပါရစေ။ အမှားတွေအားလုံးကို ဘယ်တော့မှ ထပ်မဖြစ်အောင် ပြင်ဆင်ပြီး အချစ်ကိုလည်းစိတ်မညစ်ရစေအောင် အများကြီးလည်းပိုပိုချစ်သွားပါမယ်အချစ်။
+အချစ်လည်းမောင့်ကိုဆက်ချစ်နေပေးပါအုံးနော်။ ဘယ်လိုအခက်ခဲရှိရှိ အနားမှာတူတူရင်ဆိုင်ပါအုံးနော်။ တစ်နေ့တော့ မောင်တို့အရာရာ အဆင်ပြေသွားမယ်လို့ယုံကြည်ပါတယ်. မောင်လည်းအများကြီး ကျိုးစားပါမယ်။ အရမ်းချစ်တယ်။ 
+For My Love, My Heart, My Prettiest Myo Thu Zar. I Love You so much and I Hope this will make you smile my love. အမှတ်တရလေးတစ်ခုဖြစ်အောင်ပေါ့ အချစ်ရယ်။ 
+လက်ရှိအခြေအနေအရ ဘာမှမလုပ်ပေး ဘာလက်ဆောင်မှသေချာမပေးနိုင်တာအတွက်လည်း တောင်းပန်ပါတယ်အချစ်။ တစ်နေတော့ဖြစ်အောင်ကျိုးစားပါမယ်။ တစ်ခုခုဆိုဘာမှကြီးကြီးမားမားလည်း မတောင်းဆိုတတ်တဲ့အချစ်ဆုံး။
+အများကြီးချစ်ပါတယ်နော်။ မောင့်ရဲ့လက်ဆောင်‌လေးပါ။ အချစ်ကြိုက်မှာပါနော်။ သိမ်းထားရမယ်နော်။ ❤️
+</p>
+</div>
+
+<audio id="music" src="music.mp3" loop></audio>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128/examples/js/controls/OrbitControls.js"></script>
+
+<script>
+
+let scene = new THREE.Scene();
+scene.background = new THREE.Color(0x000000);
+
+let camera = new THREE.PerspectiveCamera(
+75,
+window.innerWidth/window.innerHeight,
+0.1,
+1000
+);
+
+let renderer = new THREE.WebGLRenderer({antialias:true});
+renderer.setSize(window.innerWidth, window.innerHeight);
+document.body.appendChild(renderer.domElement);
+
+camera.position.set(0,3,8);
+
+// Controls (Mouse + Touch Supported)
+let controls = new THREE.OrbitControls(camera, renderer.domElement);
+controls.enableDamping = true;
+controls.enableZoom = true;
+controls.enablePan = false;
+controls.minDistance = 4;
+controls.maxDistance = 15;
+
+// Lights
+let light = new THREE.PointLight(0xffccaa,1.5);
+light.position.set(5,10,5);
+scene.add(light);
+
+let ambient = new THREE.AmbientLight(0x404040);
+scene.add(ambient);
+
+// Table
+let tableGeo = new THREE.CylinderGeometry(4,4,0.5,32);
+let tableMat = new THREE.MeshStandardMaterial({color:0x552200});
+let table = new THREE.Mesh(tableGeo, tableMat);
+table.position.y = -2;
+scene.add(table);
+
+// Cake
+let cakeGeo = new THREE.CylinderGeometry(1.5,1.5,1,32);
+let cakeMat = new THREE.MeshStandardMaterial({color:0xffc0cb});
+let cake = new THREE.Mesh(cakeGeo, cakeMat);
+cake.position.y = -1.2;
+scene.add(cake);
+
+// Candle
+let candleGeo = new THREE.CylinderGeometry(0.1,0.1,1,16);
+let candleMat = new THREE.MeshStandardMaterial({color:0xffffff});
+let candle = new THREE.Mesh(candleGeo, candleMat);
+candle.position.y = -0.3;
+scene.add(candle);
+
+// Flame
+let flameGeo = new THREE.SphereGeometry(0.2,16,16);
+let flameMat = new THREE.MeshBasicMaterial({color:0xff6600});
+let flame = new THREE.Mesh(flameGeo, flameMat);
+flame.position.y = 0.3;
+scene.add(flame);
+
+// Photo Frames
+let loader = new THREE.TextureLoader();
+
+let frameGeo = new THREE.BoxGeometry(2,3,0.2);
+
+let tex1 = loader.load('photo1.jpg');
+let frame1 = new THREE.Mesh(
+frameGeo,
+new THREE.MeshStandardMaterial({map:tex1})
+);
+frame1.position.set(-2,0,-1);
+scene.add(frame1);
+
+let tex2 = loader.load('photo2.jpg');
+let frame2 = new THREE.Mesh(
+frameGeo,
+new THREE.MeshStandardMaterial({map:tex2})
+);
+frame2.position.set(2,0,-1);
+scene.add(frame2);
+
+// Envelope
+let envGeo = new THREE.BoxGeometry(2,1,0.2);
+let envMat = new THREE.MeshStandardMaterial({color:0xff99aa});
+let envelope = new THREE.Mesh(envGeo, envMat);
+envelope.position.set(0,1.5,-2);
+scene.add(envelope);
+
+// Animation
+function animate(){
+requestAnimationFrame(animate);
+
+flame.scale.y = 1 + Math.sin(Date.now()*0.01)*0.15;
+
+controls.update();
+renderer.render(scene,camera);
+}
+animate();
+
+// Click / Touch Envelope
+let raycaster = new THREE.Raycaster();
+let mouse = new THREE.Vector2();
+
+function checkClick(event){
+let rect = renderer.domElement.getBoundingClientRect();
+mouse.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
+mouse.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
+
+raycaster.setFromCamera(mouse,camera);
+let intersects = raycaster.intersectObject(envelope);
+
+if(intersects.length > 0){
+document.getElementById("letter").style.display="block";
+}
+}
+
+window.addEventListener('click', checkClick);
+window.addEventListener('touchstart', function(e){
+checkClick(e.touches[0]);
+});
+
+// Start music
+document.getElementById("overlay").onclick = function(){
+document.getElementById("overlay").style.display="none";
+document.getElementById("music").play();
+}
+
+// Resize
+window.addEventListener('resize',()=>{
+camera.aspect = window.innerWidth/window.innerHeight;
+camera.updateProjectionMatrix();
+renderer.setSize(window.innerWidth, window.innerHeight);
+});
+
+</script>
+
+</body>
+</html>
